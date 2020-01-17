@@ -111,8 +111,8 @@ export class GenerateTab extends React.Component<PropsValues>{
                     {generatedPins}
                 </ul>
                 <div className={Classes.textAlignment}>
-                    <button className={Classes.success1} onClick={this.generate4digitPIN}>Generate</button>
-                    <button className={Classes.success} onClick={this.save4digitPIN} >Save</button>
+                    <button id="generate" className={Classes.success1} onClick={this.generate4digitPIN}>Generate</button>
+                    <button id="save" className={Classes.success} onClick={this.save4digitPIN} >Save</button>
                 </div>
             </React.Fragment>
         )
