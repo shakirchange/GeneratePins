@@ -1,11 +1,10 @@
-import * as actionTypes  from '../Action/action';
+import * as actionTypes from '../Action/action';
 import { Reducer } from 'react';
 
 const initialState = {
-    generateRamdonNumbers: [null, null, null, null, null], savedPinsArray: {data:[]}, namesArray: [],
+    generateRamdonNumbers: [], savedPinsArray: { data: [] }, namesArray: [],
 };
-
-const GeneratePinsReducer: Reducer<any, any> = (state=initialState, action:any) => {    
+const GeneratePinsReducer: Reducer<any, any> = (state = initialState, action: any) => {
     if (action.type === actionTypes.GENERATE_ON_CLICK_HANDLER) {
         return {
             ...state,

@@ -10,11 +10,14 @@
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
-    background: hsl(208, 81%, 63%);
-    color: white;
+    color: hsl(208, 81%, 63%);
     width: 160px;
     border: solid 1px #e2e2e2;
     margin-left: 45px;
+    border: solid 1px hsl(208, 81%, 63%);
+}
+.nameInputtext{
+    width: 150px;;
 }
 .success{
     margin: 5px;
@@ -31,7 +34,7 @@
     border-radius: 5px;
     background: red;
     color: white;
-    width: 160px;
+    width: 100px;
     border: solid 1px #e2e2e2;
 }
 ul, .ul{
@@ -43,8 +46,8 @@ ul > li, .ul> .li{
 input{
     margin: 5px;
     padding: 5px;
-    height: 14px;
+    height: 20px;
     width: 50px;
     border: solid 1px black;
-    border-radius: 5px;
+    
 }
