@@ -3,13 +3,8 @@ import * as actionTypes from '../Action/action';
 import { connect } from 'react-redux';
 import Classes from './generatepin.module.css';
 import { GeneratePinsFunction } from '../Common/GeneratePinsFunction';
-export interface PropsValues {
-    generateRamdonNumbers: number[];
-    setGeneratedPins: any;
-    savedPinsArray: any;
-    namesArray: any;
-}
-export class GenerateTab extends React.Component<PropsValues>{
+import { PropsValues1 } from '../Common/GeneratePinsInterface';
+export class GenerateTab extends React.Component<PropsValues1>{
     componentDidMount() {
         this.generate4digitPIN();
     }
@@ -17,7 +12,6 @@ export class GenerateTab extends React.Component<PropsValues>{
         let arrayLen: number[] = [];
         arrayLen = GeneratePinsFunction();
         this.props.setGeneratedPins(arrayLen, "generateRamdonNumbers");
-        this.setState({ name: '' });
     }
     save4digitPIN = () => {
         let generatedPins = this.props.generateRamdonNumbers;

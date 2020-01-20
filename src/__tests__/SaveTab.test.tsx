@@ -10,7 +10,7 @@ let PropsValues= {
     namesArray: [],
     deletePins: [],
 }
-describe('render generate tan', () => {
+describe('Test Save Tab', () => {
     let wrapper: any;
     let setGeneratedPins = jest.fn();
     wrapper = shallow(<SaveTab
@@ -27,5 +27,11 @@ describe('render generate tan', () => {
     })
     test('Testing ul Elements Length', () => {
         expect(wrapper.find('ul').length).toEqual(1);
+    })    
+    test('Testing ul Elements Length', () => {
+        expect(typeof wrapper.instance().buildSaveTabsUI([],["1957"],1)).toEqual("object");
+    })
+    test('Testing ul Elements Length', () => {
+        expect(wrapper.instance().buildSaveTabsUI([],["1957"],1)).not.toBe(null);
     })
 })

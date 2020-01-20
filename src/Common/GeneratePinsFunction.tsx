@@ -6,14 +6,14 @@ export const GeneratePinsFunction = () => {
         let genPassword: string = generatedPassword + "";
         if (genPassword.charAt(0) === "0") continue;
         let num = parseInt(genPassword);
-        if (check2NumbersDuplicate(num) && !checkNumberSequence3digits(num) && !arrayLen.includes(num)) {
+        if (!check2NumbersDuplicate(num) && !checkNumberSequence3digits(num) && !arrayLen.includes(num)) {
             arrayLen[i] = num;
             i++;
         }
     }
     return arrayLen;
 }
-const checkNumberSequence3digits = (num: number) => {
+export const checkNumberSequence3digits = (num: number) => {
     let numStr = num + "";
     let first3String: string = numStr.substring(0, 3);
     let second3String: string = numStr.substring(1, 4);
@@ -26,8 +26,7 @@ const checkNumberSequence3digits = (num: number) => {
     }
     return false;
 }
-
-const check3digitsSequence = (num: string) => {
+export const check3digitsSequence = (num: string) => {
     let firstDigit = num.charAt(0);
     let secondDigit = num.charAt(1);
     let thirdDigit = num.charAt(2);
@@ -39,8 +38,7 @@ const check3digitsSequence = (num: string) => {
     }
     return false;
 }
-
-const reverseString = (str: string) => {
+export const reverseString = (str: string) => {
     if (!str || str.length < 2 ||
         typeof str !== 'string') {
         return 'Not valid';
@@ -52,7 +50,7 @@ const reverseString = (str: string) => {
     }
     return reletray.join('');
 }
-const check2NumbersDuplicate = (num: number) => {
+export const check2NumbersDuplicate = (num: number) => {
     let strNum: string = num + "";
     let flag: boolean = false;
     for (let i = 0; i < strNum.length; i++) {

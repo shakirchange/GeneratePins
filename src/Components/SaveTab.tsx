@@ -2,14 +2,15 @@ import React from 'react';
 import * as actionTypes from '../Action/action';
 import { connect } from 'react-redux';
 import Classes from '../Components/generatepin.module.css';
-interface PropsValues {
-    generateRamdonNumbers: number[];
-    setGeneratedPins: any;
-    savedPinsArray: any;
-    namesArray: string[];
-    deletePins: any;
-}
+import { PropsValues } from '../Common/GeneratePinsInterface';
+
 export class SaveTab extends React.Component<PropsValues>{
+    constructor(props:any){
+        super(props);
+        this.state= {
+            name: ''
+        }
+    }
     deleteRow = (e: any, i: number) => {
         let savedPinsArr = this.props.savedPinsArray;
         let namesArr = this.props.namesArray;
@@ -19,7 +20,7 @@ export class SaveTab extends React.Component<PropsValues>{
         if (namesArr && namesArr.length > 0) {
             namesArr.splice(i, 1);
         }
-        this.setState({ name: 'shakir' });
+        this.setState({ name: 'updateState' });
         this.props.deletePins(savedPinsArr, "savedPinsArray");
         this.props.deletePins(namesArr, "namesArray");
         alert("Selected Row deleted successfully");
