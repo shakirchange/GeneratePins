@@ -2,31 +2,31 @@ export const GeneratePinsFunction = () => {
     let i: number = 0;
     let arrayLen: number[] = [];
     while (i <= 4) {
-        let generatedPassword = Math.floor(1000 + Math.random() * 9000);
-        let genPassword: string = generatedPassword + "";
-        if (genPassword.charAt(0) === "0") continue;
-        let num = parseInt(genPassword);
-        if (!check2NumbersDuplicate(num) && !checkNumberSequence3digits(num) && !arrayLen.includes(num)) {
+        let generatedVal = Math.floor(1000 + Math.random() * 9000);
+        let updatedVal: string = generatedVal + "";
+        if (updatedVal.charAt(0) === "0") continue;
+        let num = parseInt(updatedVal);
+        if (!checkDuplicateNumbers(num) && !checkConsecutiveNumbers(num) && !arrayLen.includes(num)) {
             arrayLen[i] = num;
             i++;
         }
     }
     return arrayLen;
 }
-export const checkNumberSequence3digits = (num: number) => {
+export const checkConsecutiveNumbers = (num: number) => {
     let numStr = num + "";
-    let first3String: string = numStr.substring(0, 3);
-    let second3String: string = numStr.substring(1, 4);
+    let firstString: string = numStr.substring(0, 3);
+    let secondString: string = numStr.substring(1, 4);
     let revNum: string = reverseString(numStr);
-    let first3StringREV = revNum.substring(0, 3);
-    let second3StringREV = revNum.substring(1, 4);
-    if (check3digitsSequence(first3String) || check3digitsSequence(second3String)
-        || check3digitsSequence(first3StringREV) || check3digitsSequence(second3StringREV)) {
+    let firstStringRev = revNum.substring(0, 3);
+    let secondStringRev = revNum.substring(1, 4);
+    if (checkSequenceNumbers(firstString) || checkSequenceNumbers(secondString)
+        || checkSequenceNumbers(firstStringRev) || checkSequenceNumbers(secondStringRev)) {
         return true;
     }
     return false;
 }
-export const check3digitsSequence = (num: string) => {
+export const checkSequenceNumbers = (num: string) => {
     let firstDigit = num.charAt(0);
     let secondDigit = num.charAt(1);
     let thirdDigit = num.charAt(2);
@@ -38,19 +38,19 @@ export const check3digitsSequence = (num: string) => {
     }
     return false;
 }
-export const reverseString = (str: string) => {
-    if (!str || str.length < 2 ||
-        typeof str !== 'string') {
+export const reverseString = (paramVal: string) => {
+    if (!paramVal || paramVal.length < 2 ||
+        typeof paramVal !== 'string') {
         return 'Not valid';
     }
-    const reletray = [];
-    const length = str.length - 1;
+    const revStr = [];
+    const length = paramVal.length - 1;
     for (let i = length; i >= 0; i--) {
-        reletray.push(str[i]);
+        revStr.push(paramVal[i]);
     }
-    return reletray.join('');
+    return revStr.join('');
 }
-export const check2NumbersDuplicate = (num: number) => {
+export const checkDuplicateNumbers = (num: number) => {
     let strNum: string = num + "";
     let flag: boolean = false;
     for (let i = 0; i < strNum.length; i++) {

@@ -2,9 +2,9 @@ import React from 'react';
 import * as actionTypes from '../Action/action';
 import { connect } from 'react-redux';
 import Classes from '../Components/generatepin.module.css';
-import { PropsValues } from '../Common/GeneratePinsInterface';
+import { SavePinsInterface } from '../Common/GeneratePinsInterface';
 
-export class SaveTab extends React.Component<PropsValues>{
+export class SaveTab extends React.Component<SavePinsInterface>{
     constructor(props:any){
         super(props);
         this.state= {

@@ -1,11 +1,11 @@
-export interface PropsValues {
+export interface SavePinsInterface {
     generateRamdonNumbers: number[];
     setGeneratedPins: any;
     savedPinsArray: any;
     namesArray: string[];
     deletePins: any;
 }
-export interface PropsValues1 {
+export interface GeneratePinsInterface {
     generateRamdonNumbers: number[];
     setGeneratedPins: any;
     savedPinsArray: any;

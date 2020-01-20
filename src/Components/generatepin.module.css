@@ -6,7 +6,7 @@
     position: relative;
     top: 100px;
 }
-.success1{
+.generateButton{
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
@@ -19,7 +19,7 @@
 .nameInputtext{
     width: 150px;;
 }
-.success{
+.saveButton{
     margin: 5px;
     padding: 10px;
     border-radius: 5px;

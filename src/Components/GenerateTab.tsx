@@ -3,17 +3,14 @@ import * as actionTypes from '../Action/action';
 import { connect } from 'react-redux';
 import Classes from './generatepin.module.css';
 import { GeneratePinsFunction } from '../Common/GeneratePinsFunction';
-import { PropsValues1 } from '../Common/GeneratePinsInterface';
-export class GenerateTab extends React.Component<PropsValues1>{
-    componentDidMount() {
-        this.generate4digitPIN();
+import { GeneratePinsInterface } from '../Common/GeneratePinsInterface';
+export class GenerateTab extends React.Component<GeneratePinsInterface>{
+    generatePIN = () => {
+        let arrayObj: number[] = [];
+        arrayObj = GeneratePinsFunction();
+        this.props.setGeneratedPins(arrayObj, "generateRamdonNumbers");
     }
-    generate4digitPIN = () => {
-        let arrayLen: number[] = [];
-        arrayLen = GeneratePinsFunction();
-        this.props.setGeneratedPins(arrayLen, "generateRamdonNumbers");
-    }
-    save4digitPIN = () => {
+    savePIN = () => {
         let generatedPins = this.props.generateRamdonNumbers;
         let savedPinsArray = this.props.savedPinsArray;
         if (savedPinsArray.data && savedPinsArray.data.includes(generatedPins)) {
@@ -21,14 +18,17 @@ export class GenerateTab extends React.Component<PropsValues1>{
         } else {
             savedPinsArray.data.push(generatedPins);
             this.props.setGeneratedPins(savedPinsArray, "savedPinsArray");
+            let namesArray = this.props.namesArray;
+            namesArray.push("");            
+            this.props.setGeneratedPins(namesArray, "namesArray");
             alert("Pins Saved Successfully");
         }
     }
     render() {
-        const array = this.props.generateRamdonNumbers;
+        const randomNumsArray = this.props.generateRamdonNumbers;
         let generatedPins: any = [];
-        if (array.length > 0 && array) {
-            generatedPins = array.map((data, index) => {
+        if (randomNumsArray.length > 0 && randomNumsArray) {
+            generatedPins = randomNumsArray.map((data, index) => {
                 return (
                     <li key={index}>
                         <input type="text" value={data} readOnly />
@@ -42,8 +42,8 @@ export class GenerateTab extends React.Component<PropsValues1>{
                     {generatedPins}
                 </ul>
                 <div className={Classes.textAlignment}>
-                    <button id="generate" className={Classes.success1} onClick={this.generate4digitPIN}>GENERATE</button>
-                    <button id="save" className={Classes.success} onClick={this.save4digitPIN} >SAVE</button>
+                    <button id="generate" className={Classes.generateButton} onClick={this.generatePIN}>GENERATE</button>
+                    <button id="save" className={Classes.saveButton} onClick={this.savePIN} >SAVE</button>
                 </div>
             </React.Fragment>
         )

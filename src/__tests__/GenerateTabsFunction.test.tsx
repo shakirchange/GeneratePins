@@ -1,7 +1,7 @@
 import { GeneratePinsFunction } from '../Common/GeneratePinsFunction';
-import { check2NumbersDuplicate } from '../Common/GeneratePinsFunction';
+import { checkDuplicateNumbers } from '../Common/GeneratePinsFunction';
 import { reverseString } from '../Common/GeneratePinsFunction';
-import { checkNumberSequence3digits } from '../Common/GeneratePinsFunction';
+import { checkConsecutiveNumbers } from '../Common/GeneratePinsFunction';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { configure } from 'enzyme';
 
@@ -18,7 +18,7 @@ describe('Generate Tab Test Cases', () => {
         expect(typeof inst).toBe("object");
     })
     test('Testing Check2NumbersDuplicate Function', () => {
-        let inst: any = check2NumbersDuplicate(10);
+        let inst: any = checkDuplicateNumbers(10);
         expect(inst).toBe(false);
     })
     test('Testing ReverseString Function with String param', () => {
@@ -26,11 +26,11 @@ describe('Generate Tab Test Cases', () => {
         expect(inst).toBe("esrever");
     })
     test('Testing CheckNumberSequence3digits Function', () => {
-        let inst = checkNumberSequence3digits(10);
+        let inst = checkConsecutiveNumbers(10);
         expect(inst).toBe(false);
     })
     test('Testing Check2NumbersDuplicate Function', () => {
-        let inst = check2NumbersDuplicate(10);
+        let inst = checkDuplicateNumbers(10);
         expect(inst).toBe(false);
     })
     test('Testing ReverseString Function with String param', () => {
@@ -38,7 +38,7 @@ describe('Generate Tab Test Cases', () => {
         expect(inst).toBe("esrever");
     })
     test('Testing CheckNumberSequence3digits Function', () => {
-        let inst = checkNumberSequence3digits(10);
+        let inst = checkConsecutiveNumbers(10);
         expect(inst).toBe(false);
     })
 })
