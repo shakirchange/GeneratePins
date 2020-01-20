@@ -5,23 +5,29 @@ import Classes from './generatepin.module.css';
 import { GeneratePinsFunction } from '../Common/GeneratePinsFunction';
 import { GeneratePinsInterface } from '../Common/GeneratePinsInterface';
 export class GenerateTab extends React.Component<GeneratePinsInterface>{
+    // Generate pins function
     generatePIN = () => {
         let arrayObj: number[] = [];
         arrayObj = GeneratePinsFunction();
         this.props.setGeneratedPins(arrayObj, "generateRamdonNumbers");
     }
+    // Save pins function
     savePIN = () => {
         let generatedPins = this.props.generateRamdonNumbers;
         let savedPinsArray = this.props.savedPinsArray;
         if (savedPinsArray.data && savedPinsArray.data.includes(generatedPins)) {
             alert("Pins are already saved");
         } else {
-            savedPinsArray.data.push(generatedPins);
-            this.props.setGeneratedPins(savedPinsArray, "savedPinsArray");
-            let namesArray = this.props.namesArray;
-            namesArray.push("");            
-            this.props.setGeneratedPins(namesArray, "namesArray");
-            alert("Pins Saved Successfully");
+            if(generatedPins && generatedPins.length>0){
+                savedPinsArray.data.push(generatedPins);
+                this.props.setGeneratedPins(savedPinsArray, "savedPinsArray");
+                let namesArray = this.props.namesArray;
+                namesArray.push("");            
+                this.props.setGeneratedPins(namesArray, "namesArray");
+                alert("Pins Saved Successfully");
+            }else{
+                alert("Pins are empty");
+            }            
         }
     }
     render() {

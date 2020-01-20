@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { GenerateTab } from '../Components/GenerateTab';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { configure } from 'enzyme';
@@ -15,6 +15,14 @@ describe('Generate Tab Test Cases', () => {
     wrapper = shallow(<GenerateTab setGeneratedPins={setGeneratedPins} {...PropsValues} />)
     test('Testing Snapshot', () => {
         expect(wrapper).toMatchSnapshot();
+    })
+    test('Testing GeneratePIN Function', () => {
+        let test = wrapper.find('#generate').simulate('click');
+        expect(test).not.toBe(null);
+    })
+    test('Testing SavePIN  Function', () => {
+        let test = wrapper.find('#save').simulate('click');
+        expect(test).not.toBe(null);
     })
     test('Testing Length', () => {
         expect(wrapper.length).not.toBe(null);

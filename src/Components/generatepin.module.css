@@ -15,6 +15,7 @@
     border: solid 1px #e2e2e2;
     margin-left: 45px;
     border: solid 1px hsl(208, 81%, 63%);
+    cursor: pointer;
 }
 .nameInputtext{
     width: 150px;;
@@ -27,6 +28,7 @@
     color: white;
     width: 160px;
     border: solid 1px #e2e2e2;
+    cursor: pointer;
 }
 .delete{
     margin: 5px;
@@ -36,6 +38,7 @@
     color: white;
     width: 100px;
     border: solid 1px #e2e2e2;
+    cursor: pointer;
 }
 ul, .ul{
     list-style-type: none; 

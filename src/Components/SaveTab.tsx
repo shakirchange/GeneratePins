@@ -11,6 +11,7 @@ export class SaveTab extends React.Component<SavePinsInterface>{
             name: ''
         }
     }
+    //Deleting seleted row function
     deleteRow = (e: any, i: number) => {
         let savedPinsArr = this.props.savedPinsArray;
         let namesArr = this.props.namesArray;
@@ -25,11 +26,13 @@ export class SaveTab extends React.Component<SavePinsInterface>{
         this.props.deletePins(namesArr, "namesArray");
         alert("Selected Row deleted successfully");
     }
+    //Setting the name function
     setName = (e: any, i: number) => {
         let namesArr = this.props.namesArray;
         namesArr[i] = e.target.value;
         this.props.setGeneratedPins(namesArr, "namesArray");
     }
+    //Building saved pins html
     buildSaveTabsUI = (pinsObj: any, objArr: any, i: number) => {
         let namesArr = this.props.namesArray;
         let name: string = "";
