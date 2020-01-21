@@ -16,14 +16,6 @@ describe('Generate Tab Test Cases', () => {
     test('Testing Snapshot', () => {
         expect(wrapper).toMatchSnapshot();
     })
-    test('Testing GeneratePIN Function', () => {
-        let test = wrapper.find('#generate').simulate('click');
-        expect(test).not.toBe(null);
-    })
-    test('Testing SavePIN  Function', () => {
-        let test = wrapper.find('#save').simulate('click');
-        expect(test).not.toBe(null);
-    })
     test('Testing Length', () => {
         expect(wrapper.length).not.toBe(null);
     })    

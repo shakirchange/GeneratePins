@@ -1,14 +1,28 @@
 //Generarting Pins function
 export const GeneratePinsFunction = () => {
     let i: number = 0;
-    let arrayLen: number[] = [];
+    let arrayLen: string[] = [];
     while (i <= 4) {
-        let generatedVal: any = Math.floor(Math.random() * 10000);
-        let updatedVal: string = generatedVal + "";
-        if (updatedVal.charAt(0) === "0") continue;
-        let num = parseInt(updatedVal);
-        if (!checkDuplicateNumbers(num) && !checkConsecutiveNumbers(num) && !arrayLen.includes(num)) {
-            arrayLen[i] = num;
+        let updatedPin: any;
+        //Checking the generated pin length 
+        var generatedPin = Math.floor(Math.random() * 10000);
+        if(generatedPin && generatedPin.toString().length === 4) {
+            // Pin length equals to 4
+            updatedPin = generatedPin;
+        }
+        else if (generatedPin && generatedPin.toString().length === 3) {
+            // Pin length equals to 3
+               let pinVal = "0" + generatedPin;
+                updatedPin = pinVal;
+        }
+        else if(generatedPin && (generatedPin.toString().length === 2 || generatedPin && generatedPin.toString().length === 1)){
+            /* Ignoring 1 and 2 digit PINs as PIN Cannot have 2 consecutive digits be same - as 3 zeros would have to be 
+            pre-fixed for 1 digit PIN and 2 zeros pre-fixed for 2 digit PINs  and such PINs would be invalid in any case*/
+            continue;
+        }
+        let updatedVal: string = updatedPin + "";
+        if (!checkDuplicateNumbers(updatedVal) && !checkConsecutiveNumbers(updatedVal) && !arrayLen.includes(updatedVal)) {
+            arrayLen[i] = updatedVal;
             i++;
         }
     }
@@ -37,9 +51,8 @@ export const checkUniquePins = (paramVal: any) => {
     return newArray;
 }
 //Checking Consecutive numbers function
-export const checkConsecutiveNumbers = (num: number) => {
+export const checkConsecutiveNumbers = (num: any) => {
     let numStr = num + "";
-    if (numStr && numStr.toString().length === 4) {
         let firstString: string = numStr.substring(0, 3);
         let secondString: string = numStr.substring(1, 4);
         let revNum: string = reverseString(numStr);
@@ -49,13 +62,7 @@ export const checkConsecutiveNumbers = (num: number) => {
             || checkSequenceNumbers(firstStringRev) || checkSequenceNumbers(secondStringRev)) {
             return true;
         }
-    } else if (numStr && numStr.toString().length === 3) {
-        let firstString: string = numStr;
-        let revNum: string = reverseString(numStr);
-        if (checkSequenceNumbers(firstString) || checkSequenceNumbers(revNum)) {
-            return true;
-        }
-    }
+    
     return false;
 }
 //Checking sequence nunmbers function
@@ -81,7 +88,7 @@ export const reverseString = (paramVal: string) => {
     return revStr.join('');
 }
 //Checking Duplicate numbers in pin function
-export const checkDuplicateNumbers = (num: number) => {
+export const checkDuplicateNumbers = (num: any) => {
     let strNum: string = num + "";
     let flag: boolean = false;
     if (num && num.toString().length >= 2) {

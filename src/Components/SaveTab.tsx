@@ -21,7 +21,7 @@ export class SaveTab extends React.Component<SavePinsInterface>{
         if (namesArr && namesArr.length > 0) {
             namesArr.splice(i, 1);
         }
-        this.setState({ name: 'updateState' });
+        this.setState({ name: '' });
         this.props.deletePins(savedPinsArr, "savedPinsArray");
         this.props.deletePins(namesArr, "namesArray");
         alert("Selected Row deleted successfully");

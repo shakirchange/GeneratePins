@@ -7,7 +7,7 @@ import { GeneratePinsInterface } from '../Common/GeneratePinsInterface';
 export class GenerateTab extends React.Component<GeneratePinsInterface>{
     // Generate pins function
     generatePIN = () => {
-        let arrayObj: number[] = [];
+        let arrayObj: string[] = [];
         arrayObj = GeneratePinsFunction();
         this.props.setGeneratedPins(arrayObj, "generateRamdonNumbers");
     }
